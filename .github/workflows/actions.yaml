@@ -11,10 +11,10 @@ jobs:
         run: |
           pwd
           ls
-      - name: Use script
-      - uses: actions/github-script@v3
-        with:
-          script: console.log(context)
+      # - name: Use script
+      # - uses: actions/github-script@v3
+      #   with:
+      #     script: console.log(context)
 
 # name: Actions Workflow
 
