@@ -7,9 +7,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: List Files
+        run: |
+          pwd
+          ls
+      - name: Use script
       - uses: actions/github-script@v3
         with:
           script: console.log(context)
+
 # name: Actions Workflow
 
 # on: [push]
