@@ -1,0 +1,19 @@
+name: Actions Workflow
+
+on: [push]
+
+
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Simple Java Script Action
+        id: greet
+        # other use
+        uses: ./RnoGitHub/actions_test@feature_github_actions
+        # input
+        with:
+          who-to-greet: John
+      - name: Log Greeting Time
+        run: echo "${{ steps.greet.outputs.time }}"
