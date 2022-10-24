@@ -1,6 +1,8 @@
 name: Actions Workflow
 
-on: [push, pull_request]
+on: 
+  pull_request:
+    types: [closed]
 
 jobs:
   script-test:
