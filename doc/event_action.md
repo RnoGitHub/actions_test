@@ -62,7 +62,7 @@ It is something that can be triggered manually. And in order to trigger it we ha
 
 It means workflow control by external site or other workflow.  
 
-repository_dispatch は GitHub の外部のイベントを検知するために用意されている機能です。GitHub API に用意されてるエンドポイントからワークフローをトリガーできる。https://docs.github.com/en/actions/reference/events-that-trigger-workflows#repository_dispatch
+repository_dispatch は GitHub の外部のイベントを検知するために用意されている機能です。GitHub API に用意されてるエンドポイントからワークフローをトリガーできる。[リンク](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#repository_dispatch)
 
 なお、 repository_dispatch イベントが実行されるのはワークフローが master もしくはデフォルトブランチにある時のみ。
 
