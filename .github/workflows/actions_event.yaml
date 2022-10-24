@@ -8,9 +8,9 @@ on:
   #   types: [closed]
   #
   # scheduled
-  # schedule:
-  #   - cron: "*/2 * * * *"
-  #   - cron: "*/3 * * * *"
+  schedule:
+     - cron: "*/2 * * * *"
+     - cron: "*/3 * * * *"
     # cron m h d m y week
     # cron "* * * * * *" every minite
     # cron "*/2 * * * *" every 2minites
