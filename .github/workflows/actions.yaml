@@ -1,0 +1,49 @@
+name: Actions Workflow
+
+on: [push]
+
+jobs:
+  script-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: List Files
+        run: |
+          pwd
+          ls -a
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{ github.token }}"
+          # git clone git@github:$GITHUB_REPOSITORY
+          # git checkout $GITHUB_SHA
+      # git's script
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: List Files After Checkout
+        run: |
+          pwd
+          ls -a
+      # - name: Use script
+      # - uses: actions/github-script@v3
+      #   with:
+      #     script: console.log(context)
+
+# name: Actions Workflow
+
+# on: [push]
+
+# jobs:
+#   run-github-actions:
+#     runs-on: ubuntu-20.04
+
+#     steps:
+#       - name: Simple Java Script Action
+#         id: greet
+#         # other use
+#         uses: ./RnoGitHub/hello-world-javascript-action@main
+#         # input
+#         with:
+#           who-to-greet: John
+#       - name: Log Greeting Time
+#         run: echo "${{ steps.greet.outputs.time }}"
