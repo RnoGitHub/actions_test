@@ -1,5 +1,10 @@
 # GitHub Actions
 
+## Refer
+
+[About GitHub-hosted runners](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners "About GitHub-hosted runners")  
+[Supported Software](https://docs.github.com/ja/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software "サポートされているソフトウェア")
+
 ## Table of Contents
 
 - Guidance for GitHub actions

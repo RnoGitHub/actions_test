@@ -13,6 +13,27 @@ outline introduce in summary.
   - Github-hosted Runner
   - Self-hosted Runners
 
+## Refer
+
+[Managing workflow runs](https://docs.github.com/ja/actions/managing-workflow-runs "Managing workflow runs")  
+
+Manually running a workflow
+Re-running workflows and jobs
+Canceling a workflow
+Approving workflow runs from public forks
+Reviewing deployments
+Disabling and enabling a workflow
+Skipping workflow runs
+Deleting a workflow run
+Downloading workflow artifacts
+Removing workflow artifacts  
+
+[Shell tables](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#using-a-specific-shell "Shell Tables")  
+
+[Java script run](https://github.com/actions/hello-world-javascript-action "java script run")
+
+[markec link](https://github.com/marketplace?type=actions "market link")
+
 ## First Workflow
 
 ---
