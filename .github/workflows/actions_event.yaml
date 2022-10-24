@@ -8,9 +8,9 @@ on:
   #   types: [closed]
   #
   # scheduled
-  schedule:
-     - cron: "*/2 * * * *"
-     - cron: "*/3 * * * *"
+  #schedule:
+  #   - cron: "*/2 * * * *"
+  #   - cron: "*/3 * * * *"
     # cron m h d m y week
     # cron "* * * * * *" every minite
     # cron "*/2 * * * *" every 2minites
@@ -22,6 +22,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: payload
+        run : echo ${{ github.event.client_payload.env }}
       - name: List Files
         run: |
           pwd
