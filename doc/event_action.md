@@ -64,3 +64,34 @@ It means workflow control by external site or other workflow.
 repository_dispatch は GitHub の外部のイベントを検知するために用意されている機能です。GitHub API に用意されてるエンドポイントからワークフローをトリガーできる。https://docs.github.com/en/actions/reference/events-that-trigger-workflows#repository_dispatch
 
 なお、 repository_dispatch イベントが実行されるのはワークフローが master もしくはデフォルトブランチにある時のみ。
+
+workflow側
+
+``` yaml
+on:
+  repository_dispatch:
+    types: [build]
+```
+
+を上記のように設定し、
+
+``` note
+Post: https://api.github.com/repos/RnoGitHub/actions_test/dispatches
+
+authentification:
+  username :RnoGitHub
+  password :access-token
+
+hedder:
+  key: Accept       value:application/vnd.github+json
+  key: Content-Type value:application/json
+
+body 
+{
+    "event_type": "build"
+}
+
+```
+
+
+のように送れば、反応する。
