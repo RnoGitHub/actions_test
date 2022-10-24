@@ -12,7 +12,8 @@ on:
     # cron "*/2 * * * *" every 2minites
     # cron "0 0 * * SUN" every sunday 0:0 on sunday
     # cron "0 12 * * *"  every 12:00
-    - cron: "* * * * *"
+    - cron: "0/3 * * * *"
+    - cron: "0/4 * * * *"
 
 jobs:
   script-test:
