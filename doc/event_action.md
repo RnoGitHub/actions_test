@@ -2,7 +2,9 @@
 
 ## Refer
 
-[Events that trigger workflows](https://docs.github.com/ja/actions/using-workflows/events-that-trigger-workflows "Events that trigger workflows")
+[Events that trigger workflows](https://docs.github.com/ja/actions/using-workflows/events-that-trigger-workflows "Events that trigger workflows")  
+[schedule](https://crontab.guru/)  
+[schedule example](https://crontab.guru/examples.html)
 
 ## Event
 

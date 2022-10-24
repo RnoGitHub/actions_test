@@ -1,8 +1,18 @@
 name: Actions Workflow
 
-on: 
-  pull_request:
-    types: [closed]
+on:
+  # event 
+  # pull_request:
+  #   types: [closed]
+  #
+  # scheduled
+  schedule:
+    # cron m h d m y week
+    # cron "* * * * * *" every minite
+    # cron "*/2 * * * *" every 2minites
+    # cron "0 0 * * SUN" every sunday 0:0 on sunday
+    # cron "0 12 * * *"  every 12:00
+    - cron: "* * * * *"
 
 jobs:
   script-test:
