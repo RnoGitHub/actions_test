@@ -3,16 +3,28 @@ name: Actions Workflow
 on: [push]
 
 jobs:
-  run-github-actions:
-    runs-on: ubuntu-20.04
+  script-test:
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Simple Java Script Action
-        id: greet
-        # other use
-        uses: ./RnoGitHub/hello-world-javascript-action@main
-        # input
+      - uses: actions/github-script@v3
         with:
-          who-to-greet: John
-      - name: Log Greeting Time
-        run: echo "${{ steps.greet.outputs.time }}"
+          script: console.log(context)
+# name: Actions Workflow
+
+# on: [push]
+
+# jobs:
+#   run-github-actions:
+#     runs-on: ubuntu-20.04
+
+#     steps:
+#       - name: Simple Java Script Action
+#         id: greet
+#         # other use
+#         uses: ./RnoGitHub/hello-world-javascript-action@main
+#         # input
+#         with:
+#           who-to-greet: John
+#       - name: Log Greeting Time
+#         run: echo "${{ steps.greet.outputs.time }}"
