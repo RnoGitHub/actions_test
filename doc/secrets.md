@@ -31,7 +31,7 @@ env:
 
 GitHub preserves secrets value
 
-${{ secrets.GITHUB_TOKEN }}
+`${{ secrets.GITHUB_TOKEN }}`
 
 This would be used automatic authentification
 
