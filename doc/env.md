@@ -86,5 +86,5 @@ github has default env
 |${GITHUB_REPOSITORY}|repository path|repo path|
 |${GITHUB_EVENT_NAME}|event type|push|
 |${GITHUB_WORKSPACE}|workspace path|/home/runner/work/|
-|${GITHUB_SHA}|tag SHA value|da8eb2cac9db965e4bf3e0cd453651dc774a2595|
+|${GITHUB_SHA}|check out id|da8eb2cac9db965e4bf3e0cd453651dc774a2595|
 |${GITHUB_REF}|headder ref|refs/heads/feature_hoge|
