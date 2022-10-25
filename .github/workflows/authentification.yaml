@@ -9,6 +9,7 @@ jobs:
       issues: write 
     steps:
       - name: Push a randome file
+        uses: actions/checkout@V3
         run: |
           pwd
           ls -a
