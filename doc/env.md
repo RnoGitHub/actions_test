@@ -56,8 +56,7 @@ Separate point
 - Which WorkFlow?
 - Which Event Name?
 
-
-ex. When you get docker image path and use it next steps. 
+ex. When you get docker image path and use it next steps.  
 
 ``` yaml
 steps:
