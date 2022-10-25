@@ -1,12 +1,46 @@
 name: Actions Workflow
 
-on: [push, pull_request]
+on:
+#  pull_request:
+#    branches:
+#      - master
+  push:
+    branches:
+      - master
+      - 'fieature/*' # matches feature/featA, matches feature/featB,"
+      # doesn't match feature/feat/a
+      - 'feature/**'
+    tags-ignore:
+      - 'v1.*'
+    paths:
+      - '**.js'
+      
+  # filter
+  #  develop branch to master
+  # repository_dispatch
+  # repository_dispatch:
+  #  types: [build]
+  # event 
+  # pull_request:
+  #   types: [closed]
+  #
+  # scheduled
+  #schedule:
+  #   - cron: "*/2 * * * *"
+  #   - cron: "*/3 * * * *"
+    # cron m h d m y week
+    # cron "* * * * * *" every minite
+    # cron "*/2 * * * *" every 2minites
+    # cron "0 0 * * SUN" every sunday 0:0 on sunday
+    # cron "0 12 * * *"  every 12:00
 
 jobs:
   script-test:
     runs-on: ubuntu-latest
 
     steps:
+      # - name: payload
+      #   run : echo ${{ github.event.client_payload.env }}
       - name: List Files
         run: |
           pwd
