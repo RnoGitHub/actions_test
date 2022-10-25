@@ -3,6 +3,7 @@
 ## Refer
 
 [Automatic token authentication](https://docs.github.com/ja/actions/security-guides/automatic-token-authentication)
+[Assigning permissions to jobs](https://docs.github.com/ja/actions/using-jobs/assigning-permissions-to-jobs)
 
 ## How to regist Secrets
 
@@ -77,3 +78,61 @@ jobs:
             }' \
           --fail
 ```
+
+Permission is different from before.
+see [Assigning permissions to jobs](https://docs.github.com/ja/actions/using-jobs/assigning-permissions-to-jobs)
+
+``` yaml
+name: Create issue on commit
+
+on: [ push ]
+
+jobs:
+  create_issue:
+    runs-on: ubuntu-latest
+    # this is point read -> write
+    permissions:
+      issues: write
+      actions: write
+      checks: write
+      contents: write
+      deployments: write
+      packages: write
+      pull-requests: write
+      repository-projects: write
+      security-events: write
+      statuses: write
+    steps:
+      - name: Push a randome file
+        run: |
+          pwd
+          ls -a
+          git init
+          git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
+          git config --global user.email "my-bot@bot.com"
+          git config --global user.name "my-bot"
+          git fetch
+          git checkout main
+          git branch --set-upstream-to=origin/main
+          git pull
+          ls -a
+          echo $RANDUM >> random.text
+          ls -a
+          git add -A
+          git commit -m"Random file"
+          git push
+
+      - name: Create issue using REST API
+        run: |
+          curl --request POST \
+          --url https://api.github.com/repos/${{ github.repository }}/issues \
+          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --header 'content-type: application/json' \
+          --data '{
+            "title": "Automated issue for commit: ${{ github.sha }}",
+            "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ github.sha }}_."
+            }' \
+          --fail
+```
+
+[this method](https://dev.classmethod.jp/articles/getting-an-access-token-with-only-the-necessary-permissions-on-github-appsgithub-actions/) also OK but 30days is effective.
