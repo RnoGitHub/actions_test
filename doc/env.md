@@ -76,12 +76,15 @@ steps:
 
 github has default env
 
-- ${HOME}"
-- ${GITHUB_WORKFLOW}"
-- ${GITHUB_ACTIONS}"
-- ${GITHUB_ACTOR}"
-- ${GITHUB_REPOSITORY}"
-- ${GITHUB_EVENT_NAME}"
-- ${GITHUB_WORKSPACE}"
-- ${GITHUB_SHA}"
-- ${GITHUB_REF}"
+|default env|meaning|example|
+|---|---|---|
+|${HOME}|pwd|/home/runner|
+|${GITHUB_WORKFLOW}|workflow name|hoge|
+|${GITHUB_ACTION}|status|run|
+|${GITHUB_ACTIONS}|status|true|
+|${GITHUB_ACTOR}|triggered user|bar|
+|${GITHUB_REPOSITORY}|repository path|repo path|
+|${GITHUB_EVENT_NAME}|event type|push|
+|${GITHUB_WORKSPACE}|workspace path|/home/runner/work/|
+|${GITHUB_SHA}|tag SHA value|da8eb2cac9db965e4bf3e0cd453651dc774a2595|
+|${GITHUB_REF}|headder ref|refs/heads/feature_hoge|
