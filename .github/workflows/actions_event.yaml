@@ -1,8 +1,25 @@
 name: Actions Workflow
 
 on:
-  repository_dispatch:
-    types: [build]
+#  pull_request:
+#    branches:
+#      - master
+  push:
+    branches:
+      - master
+      - 'fieature/*' # matches feature/featA, matches feature/featB,"
+      # doesn't match feature/feat/a
+      - 'feature/**'
+    tags-ignore:
+      - 'v1.*'
+    paths:
+      - '**.js'
+      
+  # filter
+  #  develop branch to master
+  # repository_dispatch
+  # repository_dispatch:
+  #  types: [build]
   # event 
   # pull_request:
   #   types: [closed]
@@ -22,8 +39,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: payload
-        run : echo ${{ github.event.client_payload.env }}
+      # - name: payload
+      #   run : echo ${{ github.event.client_payload.env }}
       - name: List Files
         run: |
           pwd

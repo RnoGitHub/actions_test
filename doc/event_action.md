@@ -7,6 +7,7 @@
 [schedule example](https://crontab.guru/examples.html)
 [repository dispatch](https://docs.github.com/ja/rest/repos/repos#create-a-repository-dispatch-event)
 [postman](https://identity.getpostman.com/signup)
+[Filter pattern cheat sheet](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)
 
 ## Event
 
@@ -61,7 +62,7 @@ It is something that can be triggered manually. And in order to trigger it we ha
 
 It means workflow control by external site or other workflow.  
 
-repository_dispatch は GitHub の外部のイベントを検知するために用意されている機能です。GitHub API に用意されてるエンドポイントからワークフローをトリガーできる。https://docs.github.com/en/actions/reference/events-that-trigger-workflows#repository_dispatch
+repository_dispatch は GitHub の外部のイベントを検知するために用意されている機能です。GitHub API に用意されてるエンドポイントからワークフローをトリガーできる。[リンク](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#repository_dispatch)
 
 なお、 repository_dispatch イベントが実行されるのはワークフローが master もしくはデフォルトブランチにある時のみ。
 
@@ -93,5 +94,25 @@ body
 
 ```
 
-
 のように送れば、反応する。
+やはり、master branchでしか反応しなかった。
+
+## filter
+
+filter function works at develop branch to master.
+どれを有効にして、どれを無効にするかフィルターできる。
+
+有効な設定を書いた後、フィルターの部分を記載する。
+
+``` yaml
+on:
+  push:
+    branches:
+      - master      # default OK
+      - 'feature/*' # filter/hoge
+      - 'feature**' # filter feature hogehoge
+      - '!feature/featC' # 例外でfeature**からfeatCだけ除外
+    branches-ignore: # 無視する場合のfilter 正常系との共存はできない。
+```
+
+see detail [Patterns to match branches and tags](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#patterns-to-match-branches-and-tags)

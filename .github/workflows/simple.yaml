@@ -1,6 +1,7 @@
 name: Shell Commands
 
-on: [push]
+# comment push→pull_request
+on: [pull_request]
 
 jobs:
   run-shell-command:
