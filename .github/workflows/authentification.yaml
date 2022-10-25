@@ -6,7 +6,16 @@ jobs:
   create_issue:
     runs-on: ubuntu-latest
     permissions:
-      issues: write 
+      issues: write
+      actions: write
+      checks: write
+      contents: write
+      deployments: write
+      packages: write
+      pull-requests: write
+      repository-projects: write
+      security-events: write
+      statuses: write
     steps:
       - name: Push a randome file
         run: |
