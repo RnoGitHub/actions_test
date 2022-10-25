@@ -1,5 +1,11 @@
 # Secrets
 
+## Refer
+
+[Automatic token authentication](https://docs.github.com/ja/actions/security-guides/automatic-token-authentication)
+
+## How to regist Secrets
+
 If you use token or correspond to it, it is secret things.
 When you use these secrets, regist secrets to GitHub and Read to env then use it.
 
@@ -26,3 +32,24 @@ env:
 GitHub preserves secrets value
 
 ${{ secrets.GITHUB_TOKEN }}
+
+This would be used automatic authentification
+
+for example
+
+``` yaml
+name: Pull request labeler
+on: [ pull_request_target ]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@v4
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+```
