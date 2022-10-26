@@ -1,6 +1,7 @@
 name: Create issue on commit
 
-on: [ push ]
+# comment push→pull_request
+on: [pull_request]
 
 jobs:
   create_issue:
