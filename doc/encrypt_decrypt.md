@@ -42,5 +42,32 @@ Next you push file_name.gpg to GitHub.
 ## Make workflow to decrypt in GitHub
 
 ``` yaml
+name: encrypt and decrypt
 
+on: [ push ]
+
+jobs:
+  decrypt:
+    runs-on: ubuntu-20.04
+    env :
+      PASSPHRASE: ${{ secrets.PASSPHRASE }}
+    steps:
+      - uses: actions/checkout@v1
+      - name: Decrypt file
+        run : gpg --quiet --batch --yes --decrypt --passphrase=PASSPHRASE --output $HOME/secret.json secret.json.gpg
+
+      - name: Print out file content
+        run: cat $HOME/secret.json
 ```
+
+## gpg option
+
+|option|contents|
+|---|---|
+|--quiet|no log|
+|--batch| cmd line operation|
+|--yes| several question from gpg but you answer yes|
+|--decrypt| decrypt|
+|--passphrase=PASSPHRASE|passphrase is env|
+|--output $HOME/secret.json| outptfile path|
+|secret.json.gpg| input file|
