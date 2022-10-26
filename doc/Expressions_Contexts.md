@@ -1,11 +1,13 @@
-# Expression
+# Expression and Function
 
 ## Refer
 
 [Contexts](https://docs.github.com/en/actions/learn-github-actions/contexts)
+[Functions](https://docs.github.com/en/actions/learn-github-actions/expressions#functions)
 
 ## ${{ }}
 
+---
 $env
 
 ${{ }} means evaluated value in GitHub
@@ -40,4 +42,18 @@ jobs:
         run: echo '${{ toJSON(strategy) }}'
       - name: Dump matrix context
         run: echo '${{ toJSON(matrix) }}'
+```
+
+## Functions
+
+---
+Upper example toJSON  
+other is
+[here](https://docs.github.com/en/actions/learn-github-actions/expressions#functions).
+
+```yaml
+echo ${{ contains( 'hello','ll' ) }}
+echo ${{ startsWith( 'hello','he' ) }}
+echo ${{ endsWith( 'hello','lo' ) }}
+echo ${{ format( 'Hello {0} {1} {2}','World', '!', '!' ) }}
 ```
