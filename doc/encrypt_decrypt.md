@@ -54,7 +54,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Decrypt file
-        run : gpg --quiet --batch --yes --decrypt --passphrase=PASSPHRASE --output $HOME/secret.json secret.json.gpg
+        run : gpg --quiet --batch --yes --decrypt --passphrase=$PASSPHRASE --output $HOME/secret.json secret.json.gpg
 
       - name: Print out file content
         run: cat $HOME/secret.json
@@ -68,6 +68,6 @@ jobs:
 |--batch| cmd line operation|
 |--yes| several question from gpg but you answer yes|
 |--decrypt| decrypt|
-|--passphrase=PASSPHRASE|passphrase is env|
+|--passphrase=$PASSPHRASE|passphrase is env|
 |--output $HOME/secret.json| outptfile path|
 |secret.json.gpg| input file|
