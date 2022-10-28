@@ -15,7 +15,7 @@ jobs:
         exclude:
           - os: ubuntu-20.04
             node_version: 6
-          - os: ubuntu-20.04
+          - os: macos-latest
             node_version: 8
       max-parallel: 3 # parallel jobs num. it is limit
       # fail-fast: true # default true means several jobs work. if there is an error in matrix, wf will stop.
