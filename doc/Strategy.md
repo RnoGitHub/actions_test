@@ -1,7 +1,7 @@
 # Strategy
 
 Timeout, Error condition, Error handring they need to include strategy.
-Also node.
+Next, introduce matrix. it will try several combination.
 
 ## Refer
 
@@ -38,4 +38,34 @@ Timeout has value to judge time out.(default 360 min). this time elapsed GitHub 
         run: echo '${{ toJSON(strategy) }}'
       - name: Dump matrix context
         run: echo '${{ toJSON(matrix) }}'
+```
+
+## Matrix
+
+---
+If you use matrix, you can try combination between several os version, tool version and others.  
+Matrix do the job all combination. (12=nove_v(4) * os(3) job putturn will done)
+
+```yaml
+name: Matrix
+
+on: push
+
+jobs:
+  node-version:
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-20.04, windows-latest]
+        node_version: [6,8,10,16]
+      max-parallel: 3 # parallel jobs num. it is limit
+      # fail-fast: true # default true means several jobs work. if there is an error in matrix, wf will stop.
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Log node node-version
+        run: node -v
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node_version }}
+      - name: Log node node-version
+        run: node -v
 ```
