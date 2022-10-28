@@ -56,7 +56,7 @@ jobs:
     strategy:
       matrix:
         os: [macos-latest, ubuntu-20.04, windows-latest]
-        node_version: [6,8,10,16]
+        node_version: [6,10,16]
       max-parallel: 3 # parallel jobs num. it is limit
       # fail-fast: true # default true means several jobs work. if there is an error in matrix, wf will stop.
     runs-on: ${{ matrix.os }}
