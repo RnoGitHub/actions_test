@@ -1,5 +1,7 @@
 name: Contexts testing
-on: [push, pull_request]
+
+# comment push, pull_request→pull_request
+on: [pull_request]
 
 jobs:
   funtions:
@@ -19,12 +21,14 @@ jobs:
       - name: Dump GitHub context
         id: github_context_step
         run: echo '${{ toJSON(github) }}'
+        continue-on-error: true
       - name: Dump job context
         if: failure()
         run: echo '${{ toJSON(job) }}'
       - name: Dump steps context
         if: always()
         run: echo '${{ toJSON(steps) }}'
+        timeout-minutes: 360
       - name: Dump runner context
         run: echo '${{ toJSON(runner) }}'
       - name: Dump strategy context
