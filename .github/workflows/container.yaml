@@ -20,7 +20,10 @@ jobs:
         with:
           entrypoint: '/usr/local/bin/node' #コンテナ起動時にechoコマンドを実行
           args: '-v' #echoコマンドの引数
-
+      - name: Run a script
+        with:
+          entrypoint: ./script.sh
+          args: "Some string"
 
       #options:
       #volumes
