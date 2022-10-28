@@ -69,3 +69,45 @@ jobs:
       - name: Log node node-version
         run: node -v
 ```
+
+### exclude and include
+
+exclude puttern: use exclude key and type
+include puttern: use include key and type
+
+``` yaml
+name: Matrix
+
+on: push
+
+jobs:
+  node-version:
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-20.04, windows-latest]
+        node_version: [6,8,16]
+        include:
+          - os: ubuntu-20.04
+            node-version: 8
+            is_ubuntu_8: "true"
+        exclude:
+          - os: ubuntu-20.04
+            node_version: 6
+          - os: macos-latest
+            node_version: 8
+      max-parallel: 3 # parallel jobs num. it is limit
+      # fail-fast: true # default true means several jobs work. if there is an error in matrix, wf will stop.
+    runs-on: ${{ matrix.os }}
+    env:
+      IS_UBUNTU_8: ${{ matrix.is_ubuntu_8 }}
+    steps:
+      - name: Log node node-version
+        run: node -v
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node_version }}
+      - name: Log node node-version
+        run: |
+          node -v
+          echo $IS_UBUNTU_8
+```
