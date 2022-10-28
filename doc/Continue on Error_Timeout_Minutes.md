@@ -1,4 +1,16 @@
-# Error continue
+# Strategy
+
+Timeout, Error condition, Error handring they need to include strategy.
+Also node.
+
+## Refer
+
+[actions/setup-node](https://github.com/actions/setup-node)
+
+## Error continue and Timeout
+
+Timeout, Error condition, Error handring they need to include strategy.
+Timeout has value to judge time out.(default 360 min). this time elapsed GitHub kill workflow process automatically.
 
 ``` yaml
 
